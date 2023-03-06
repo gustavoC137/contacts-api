@@ -26,6 +26,6 @@ services:
       - DB_PASSWORD=masterkey
       - DB_DATABASE=contact_book
     volumes:
-      - './contacts-api:/app'
+      - './:/app'
     depends_on:
       - mariadb
