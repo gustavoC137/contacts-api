@@ -50,7 +50,6 @@ class PersonController extends Controller
     public function update(UpdatePersonRequest $request, $id)
     {
         try {
-
             $person = Person::findOrFail($id);
             $person->fill($request->all())->save();
 
@@ -63,7 +62,7 @@ class PersonController extends Controller
             // update or create contacts
             foreach ($request->contacts as $contact) {
                 if (isset($contact['id'])) {
-                    $person->contacts->findOrFail($contact['id'])->update($contact);
+                    $person->contacts->find($contact['id'])->update($contact);
                 } else {
                     $person->contacts()->create($contact)->save();
                 }
