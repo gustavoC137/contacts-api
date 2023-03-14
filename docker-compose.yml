@@ -29,3 +29,4 @@ services:
       - './:/app'
     depends_on:
       - mariadb
+    command: sh -sc "chown -R bitnami:bitnami /app && sh ./dev.sh" # for development environment
